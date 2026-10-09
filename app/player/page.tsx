@@ -2,8 +2,10 @@
 
 
 import { motion, Variants } from "framer-motion";
+import { useRouter } from 'next/navigation'
 
 export default function PlayerDashboard() {
+  const router = useRouter();
   // Staggered animation variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -33,6 +35,7 @@ const itemVariants: Variants = {
 
         {/* Logout Button */}
         <motion.button
+        onClick={()=> router.push('/')}
           whileHover={{ backgroundColor: "rgba(255,255,255,0.05)" }}
           whileTap={{ scale: 0.95 }}
           className="flex items-center gap-2 px-4 py-2 rounded-lg border border-stone-800 text-xs sm:text-sm font-semibold text-stone-300 transition-colors hover:text-white"
